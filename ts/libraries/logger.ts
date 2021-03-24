@@ -26,9 +26,10 @@ export const fatal = (err: string) => {
 			'(Exiting in 1s)'
 		)}`
 	);
-	return setTimeout(() => {
+	setTimeout(() => {
 		process.exit(1);
 	}, 1000); // keepAlive
+	return;
 };
 
 export const info = (message: string, message2?: string) => {
