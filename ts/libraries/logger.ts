@@ -38,7 +38,7 @@ export const info = (message: string, message2?: string) => {
 	prelog();
 	console.info(
 		`${icon} ${kleur.bold(message || 'No Message Specified')}${
-			message2 != '' ? ` ${kleur.gray(`(${message2})`)}` : ''
+			message2 ? ` ${kleur.gray(`(${message2})`)}` : ''
 		}`
 	);
 };
@@ -50,7 +50,7 @@ export const warning = (message: string, message2?: string) => {
 	prelog();
 	console.warn(
 		`${icon} ${kleur.bold(message || 'No Message Specified')}${
-			message2 != '' ? ` ${kleur.gray(`(${message2})`)}` : ''
+			message2 ? ` ${kleur.gray(`(${message2})`)}` : ''
 		}`
 	);
 };
@@ -62,7 +62,7 @@ export const success = (message: string, message2?: string) => {
 	prelog();
 	console.log(
 		`${icon} ${kleur.bold(message || 'No Message Specified')}${
-			message2 != '' ? ` ${kleur.gray(`(${message2})`)}` : ''
+			message2 ? ` ${kleur.gray(`(${message2})`)}` : ''
 		}`
 	);
 };
