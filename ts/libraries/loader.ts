@@ -8,7 +8,7 @@ let loaderOn = false;
 
 let destroyed = false;
 
-const interval = setInterval(() => {
+let interval = setInterval(() => {
 	if (loaderOn) {
 		loaderSymb = loaderSymb + 1;
 		if (!loaders[loaderSymb]) {
@@ -49,8 +49,7 @@ export default {
 		loaderOn = false;
 	},
 	destroy: () => {
-		check();
-		clearInterval(interval);
+		if (interval) clearInterval(interval);
 		destroyed = true;
 	},
 };

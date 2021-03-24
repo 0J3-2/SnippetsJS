@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import yml from 'node-yaml';
-import prompts from 'prompts';
+import prompts, { PromptObject } from 'prompts';
 import yargs from 'yargs';
 import kleur from 'kleur';
 import loadConfig, { dataPath } from '../libraries/configLoader';
@@ -36,15 +36,15 @@ const _mod = () => {
 					type: 'text',
 					name: 'SnippetName',
 					message: labels.SnippetName,
-					validate: value => {
+					validate: (value: string) => {
 						let a = value && value != '';
 						return a;
 					},
 				},
 				{
-					type: prev => (data.data[prev] ? 'toggle' : null),
+					type: (prev: string | number) => (data.data[prev] ? 'toggle' : null),
 					name: 'overwrite',
-					message: prev => `Overwrite ${prev}?`,
+					message: (prev: any) => `Overwrite ${prev}?`,
 					initial: true,
 					active: 'no',
 					inactive: 'yes',
@@ -54,8 +54,16 @@ const _mod = () => {
 					name: 'lib',
 					message: labels.library,
 					choices: [
-						{ title: 'JavaScript (Vanilla NodeJS)', value: 'vanilla' },
-						{ title: 'TypeScript', value: 'ts' },
+						{
+							title: 'JavaScript (Vanilla NodeJS)',
+							description: 'https://nodejs.org/',
+							value: 'vanilla',
+						},
+						{
+							title: 'TypeScript',
+							description: 'https://typescriptlang.org/',
+							value: 'ts',
+						},
 					],
 				},
 			],
@@ -65,7 +73,7 @@ const _mod = () => {
 					cancelled = true;
 					return false;
 				},
-				onSubmit: (prompt, answer) => {
+				onSubmit: (prompt: PromptObject<string>, answer: any) => {
 					if (prompt.name == 'overwrite' && answer == true) {
 						cancelled = true;
 						fatal('User Cancelled');
