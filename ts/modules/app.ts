@@ -24,7 +24,16 @@ const labels = {
 
 	let snippets = [];
 
-	snippets[snippets.length] = { title: 'R', description: 'a' };
+	snippets[snippets.length] = {
+		title: 'Add a Snippet',
+		description: 'Sends you to the add-snippet dialog',
+		value: 'ADD_SNIPPET',
+	};
+	snippets[snippets.length] = {
+		title: 'Quit',
+		description: 'Exits the program',
+		value: 'EXIT',
+	};
 
 	const { action } = await prompts([
 		{
