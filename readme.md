@@ -1,5 +1,7 @@
 # [SnippetsJS](https://github.com/0J3-2/SnippetsJS) - A Fork of [QuickSSH](https://github.com/0j3/quickssh)
 
+NOTE: This project is not even remotely close to done yet.
+
 Write short programs ("snippets") (optionally, with user input) for when your project is too small to bother making into a full application.
 
 ---
