@@ -7,4 +7,4 @@
 # Lower NODE versions might work but are untested
 # 
 
-node addSSH.js
+node .

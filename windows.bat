@@ -7,5 +7,4 @@
 
 @echo off
 
-cd ..
-node addSSH.js
+node .
