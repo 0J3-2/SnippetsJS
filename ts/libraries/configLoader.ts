@@ -2,6 +2,7 @@ import checkIntegrity from './configIntegrityCheck';
 import upgrade from './configVersionUpgrader';
 import loader from './loader';
 import { success, fatal } from './logger';
+import { Config } from '../interfaces/config';
 import { resolve } from 'path';
 import semver from 'semver';
 import fs from 'fs-extra';
@@ -17,12 +18,10 @@ const Default = async () => {
 
 	const version = packageJson.version;
 
-	let data: {
-		version: any;
-		data: {};
-	} = {
-		version: version,
-		data: {},
+	let data: Config = {
+		version: version, // last version
+		hasLaunched: false, // has launched previously?
+		data: {}, // snippets
 	};
 
 	const parsedVersion = semver.parse(version);

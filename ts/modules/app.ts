@@ -9,5 +9,24 @@ import loader from '../libraries/loader';
 import { success, warning, fatal, info } from '../libraries/logger';
 import { hideBin } from 'yargs/helpers';
 import { resolve } from 'path';
+import add from './add';
 
-(async () => {})();
+const labels = {
+	action: '',
+};
+(async () => {
+	const config = loadConfig();
+	console.log(`Welcome`);
+
+	const promptOut = await prompts([
+		{
+			type: 'select',
+			name: 'action',
+			message: labels.action,
+			choices: [
+				{ title: 'JavaScript (Vanilla NodeJS)', value: 'vanilla' },
+				{ title: 'TypeScript', value: 'ts' },
+			],
+		},
+	]);
+})();

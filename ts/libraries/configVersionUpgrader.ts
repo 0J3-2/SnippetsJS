@@ -2,6 +2,8 @@ import { resolve } from 'path';
 import fs from 'fs-extra';
 import logger from './logger';
 
+import { Config } from '../interfaces/config';
+
 // const wait = (ms: number) => {
 // 	return new Promise(res => {
 // 		setTimeout(res, ms);
@@ -10,15 +12,12 @@ import logger from './logger';
 
 const upgrade: (
 	//Type Def
-	config: { version: any; data: any },
+	config: Config,
 	oldVerson: any,
 	newVersion: { version: any }
-) => Promise<{
-	version: any;
-	data: any;
-}> = async (
+) => Promise<Config> = async (
 	// Arguments
-	config: { version: any; data: any },
+	config: Config,
 	oldVerson: any,
 	newVersion: { version: any }
 ) => {
@@ -41,11 +40,9 @@ const upgrade: (
 		}
 	} else {
 		config.version = newVersion.version;
+		config.hasLaunched = true; // if upgrading, assume you already ran it once
 		//await wait(500); // just to emulate time consuming shit - will be removed pre-1.0.0
 	}
-	return {
-		version: config.version,
-		data: config.data,
-	};
+	return config;
 };
 export default upgrade;

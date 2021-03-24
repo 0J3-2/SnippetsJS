@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
 		"moduleResolution": "node",
-		"pretty": true,
 		"rootDir": "./ts/",
 		"outDir": "./js/",
 		"removeComments": true,
@@ -9,6 +8,8 @@
 		"declaration": true,
 		"esModuleInterop": true,
 		"target": "ES5",
-		"alwaysStrict": true
-	}
+		"alwaysStrict": true,
+		"pretty": true
+	},
+	"exclude": ["scripts/*", "scripts/**/*"]
 }

@@ -13,7 +13,7 @@
 	},
 	"devDependencies": {},
 	"name": "quickssh",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "js/modules/app.js",
 	"author": "0J3 <0J3@wafflepowered.com>",
 	"license": "MIT",
