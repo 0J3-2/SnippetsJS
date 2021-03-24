@@ -16,7 +16,7 @@ Soon...
 
 Clone this directory, and open it in a CMD. Then run `yarn` in the directory\*
 
-\* `npm install` also works, but usage of [yarn](https://yarnpkg.com) is HEAVILY reccomended.
+\*`npm install` also works, but usage of [yarn](https://yarnpkg.com) is HEAVILY reccomended.
 
 ## Usage
 
