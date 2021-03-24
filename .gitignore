@@ -1,3 +1,12 @@
+# Node Modules
 node_modules
-list.yml
+
+# Yarn Errors
 yarn-error.log
+
+# Config
+list.yml
+scripts
+
+# TS Build
+js

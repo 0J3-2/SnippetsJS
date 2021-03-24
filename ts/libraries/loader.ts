@@ -15,7 +15,7 @@ const interval = setInterval(() => {
 			loaderSymb = 0;
 		}
 		process.stdout.cursorTo(0);
-		process.stdout.clearLine();
+		process.stdout.clearLine(1);
 		process.stdout.write(
 			`${loaders[loaderSymb]} ${kleur.bold(loaderText)}${kleur.gray(
 				loaderText2 || ''
@@ -31,11 +31,11 @@ const check = () => {
 };
 
 export default {
-	setLoaders: list => {
+	setLoaders: (list: string[]) => {
 		check();
 		loaders = list;
 	},
-	setLoaderText: (text, text2) => {
+	setLoaderText: (text: string, text2?: string) => {
 		check();
 		loaderText = text;
 		if (text2) loaderText2 = ` (${text2})`;

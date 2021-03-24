@@ -1,38 +1,21 @@
-# QuickSSH
+# [SnippetsJS](https://github.com/0J3-2/SnippetsJS) - A Fork of [QuickSSH](https://github.com/0j3/quickssh)
 
-Quickly connect to SSH without bothering to wait for a terminal like terminus to open, or to type a command in manually if you're really lazy and don't use something like terminus
+Write short programs ("snippets") (optionally, with user input) for when your project is too small to bother making into a full application.
 
 ---
 
 ## Installation
 
+### From Binaries
+
+Soon...
+
+### From Source
+
 Clone this directory, and open it in a CMD. Then run `yarn` in the directory\*
 
-\* `npm install` also works, but usage of [yarn](https://yarnpkg.com) is HEAVILY reccomended
+\* `npm install` also works, but usage of [yarn](https://yarnpkg.com) is HEAVILY reccomended.
 
 ## Usage
 
-Open into `linux` or `windows` (depending on your OS) in a file manager or a command prompt.
-
-### Adding a host
-
-Run `add.sh` / `add.bat` and follow the instructions.
-
-### Removing a host
-
-SoonTM (or remove entries from list.yml)
-
-### Connecting to a host
-
-run `connect.sh` / `connect.bat` and select a host.
-
-### Setting a Label
-
-1. Edit list.yml in any text editor.
-2. Find the host under the `data` key.
-3. Edit said label to whatever you want.
-4. Save.
-
-## Why did I make this?
-
-because someone keeps asking me to do shit on their vps and i cba to wait for [terminus](https://www.electronjs.org/apps/terminus) (the cmd i primarily use) to open every time.
+Open the folders `linux.sh` or `windows.bat` (depending on your OS) and follow the terminal instructions
