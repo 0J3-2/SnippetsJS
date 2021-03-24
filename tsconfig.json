@@ -1,12 +1,13 @@
 {
 	"compilerOptions": {
-		"moduleResolution": "Node",
+		"moduleResolution": "node",
+		"pretty": true,
 		"rootDir": "./ts/",
 		"outDir": "./js/",
 		"removeComments": true,
 		"sourceMap": true,
 		"declaration": true,
 		"esModuleInterop": true,
-		"target": "ES6"
+		"target": "ES5"
 	}
 }
