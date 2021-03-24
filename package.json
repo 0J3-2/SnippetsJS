@@ -12,6 +12,7 @@
 		"typescript": "^4.2.3"
 	},
 	"devDependencies": {},
+	"type": "module",
 	"name": "quickssh",
 	"version": "0.0.1",
 	"main": "js/modules/app.js",
