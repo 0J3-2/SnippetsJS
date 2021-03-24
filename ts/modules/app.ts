@@ -14,13 +14,22 @@ import { Config } from '../interfaces/config';
 
 const labels = {
 	action: 'Which Snippet would you like to run?',
+	editor:
+		'Would you like to enter the command/path to your prefered text editor',
 };
-(async () => {
+const main = async () => {
+	console.clear();
+	success(`> Main Menu <`);
+
 	const config: ReturnType<any> = await loadConfig();
 	success(
 		`Welcome ${config.hasLaunched ? 'Back ' : ''}to SnippetJS!`,
 		`Version: ${config.version}`
 	);
+
+	config.hasLaunched = true;
+
+	yml.writeSync(dataPath, config);
 
 	let snippets = [];
 
@@ -30,12 +39,22 @@ const labels = {
 		value: 'ADD_SNIPPET',
 	};
 	snippets[snippets.length] = {
+		title: 'Remove a Snippet',
+		description: 'Sends you to the remove-snippet dialog',
+		value: 'DEL_SNIPPET',
+	};
+	snippets[snippets.length] = {
 		title: 'Quit',
 		description: 'Exits the program',
 		value: 'EXIT',
 	};
 
-	const { action } = await prompts([
+	const { action, editor } = await prompts([
+		{
+			type: config.editor ? 'text' : null,
+			name: 'editor',
+			message: labels.editor,
+		},
 		{
 			type: 'select',
 			name: 'action',
@@ -44,9 +63,27 @@ const labels = {
 		},
 	]);
 
-	config.hasLaunched = true;
+	switch (action) {
+		case 'EXIT':
+			process.exit(0);
+			break;
 
-	yml.writeSync(dataPath, config);
+		case 'ADD_SNIPPET':
+			console.clear();
+			success(`> Add Snippet <`);
+			add(main);
+			break;
 
-	loader.destroy();
-})();
+		case 'DEL_SNIPPET':
+			console.clear();
+			success(`> Remove Snippet <`);
+
+			break;
+
+		default:
+			loader.destroy();
+			process.exit(0);
+			break;
+	}
+};
+main();

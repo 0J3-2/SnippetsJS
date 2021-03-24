@@ -16,7 +16,7 @@ const argv = yargs(hideBin(process.argv)).option('r', {
 	type: 'boolean',
 }).argv;
 
-const _mod = () => {
+const _mod = (cb: () => any) => {
 	const labels = {
 		SnippetName: /*chalk.rgb(255, 0, 255)*/ `What's your Snippet's Name? `,
 		library: `Which JavaScript Parser would you like to use? `,
@@ -137,22 +137,25 @@ const _mod = () => {
 		)
 			return;
 
-		loader.destroy();
 		success('Target Reached: Finish!');
+		info('Returning to main menu in 1.5 seconds');
+		setTimeout(() => {
+			cb();
+		}, 1500);
 	})();
 };
 
 if (argv.r == true) {
 	warning('Flag -r/--runAdd/--run-add specified, not running as module');
-	_mod();
+	_mod(() => {});
 }
 
-export default () => {
+export default cb => {
 	if (argv.r) {
 		return fatal(
 			'Cannot use DEFAULT with -r/--runAdd/--run-add specified. Please run modules/add directly or remove the previously stated argument.'
 		);
 	}
 
-	return _mod();
+	return _mod(cb || (() => {}));
 };
