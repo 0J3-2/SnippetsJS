@@ -111,6 +111,7 @@ const _mod = () => {
 		data.data[SnippetName] = {
 			path: filePath,
 			label,
+			parser: lib,
 		};
 		success(`Added Entry`);
 
